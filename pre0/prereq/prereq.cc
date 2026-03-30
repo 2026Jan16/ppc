@@ -17,8 +17,7 @@ This is the function you need to implement. Quick reference:
 Result calculate(int ny, int nx, const float *data, int y0, int x0, int y1, int x1) {
     Result result{{0.0f, 0.0f, 0.0f}};
     double csum[3] = {0.0f, 0.0f, 0.0f};
-    int total_pixels = (x1 - x0) * (y1 - y0);
-    if ((y0 < 0) || (y1 < 0) || (x0 < 0) || (x1 < 0)) return result;    
+    int npixels = ((x1 - x0) * (y1 - y0));
     for (int c = 0; c < 3; c++)
     {
 	    for (int x = x0; (x < x1) && (x1 <= nx); x++)
@@ -29,8 +28,8 @@ Result calculate(int ny, int nx, const float *data, int y0, int x0, int y1, int 
 		    }
 	    }
     }
-    result.avg[0] = csum[0] / total_pixels; 
-    result.avg[1] = csum[1] / total_pixels;
-    result.avg[2] = csum[2] / total_pixels;
+    result.avg[0] = csum[0] / npixels; 
+    result.avg[1] = csum[1] / npixels;
+    result.avg[2] = csum[2] / npixels;
     return result;
 }
