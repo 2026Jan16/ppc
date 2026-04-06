@@ -29,6 +29,8 @@ void correlate(int ny, int nx, const float *data, float *result) {
 	int i, j;
 	j = i = 0;
 	/* calculate mean for each row 
+	 * ny: rows
+	 * nx: cols
 	 **/
 	// no of element in each row = no of col
 	int x, y, nyi = 0;
@@ -47,18 +49,6 @@ void correlate(int ny, int nx, const float *data, float *result) {
 			PUT_DATA(y, x, dev);
 		}
 		nyi++;
-	}
-
-	/* calculate co-relation */
-	for (i = 0; i < ny; i++)
-	{
-		for (j = 0; j <= i; j++)
-		{
-			for (int x = 0; x < nx; x++)	
-			{
-					
-			}
-		}
 	}
 }
 
